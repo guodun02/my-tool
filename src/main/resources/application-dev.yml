@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    # 核心：file模式 + 指定路径，DB_CLOSE_DELAY=-1 确保连接关闭时不删除数据
+    url: jdbc:h2:file:./h2-db/my-tool-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 123456  # 建议设置密码，更安全
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update  # 保留表结构和数据
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
