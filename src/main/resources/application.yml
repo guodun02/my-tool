@@ -1,3 +1,19 @@
 spring:
   application:
     name: my-tool
+  profiles:
+    # ??
+    active: dev
+
+# MyBatis-Plus 配置（保留原有，优化编码相关）
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  # 类扫描 可以在xml 使用User而不用com.test.domain.user
+ # type-aliases-package: com.gd.self.tool.**.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    # 日志实现（保持不变，重点是编码环境）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 新增：强制 MyBatis 使用 UTF-8 编码
+    default-statement-timeout: 30
+    call-setters-on-nulls: true
